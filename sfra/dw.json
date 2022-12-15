@@ -1,0 +1,14 @@
+{
+    "hostname": "bdcl-013.sandbox.us01.dx.commercecloud.salesforce.com",
+    "username": "",
+    "password": "",
+    "storefrontUsername": "storefront",
+    "storefrontPassword": "chl123",
+    "exclude": ["**/client/**", "node_modules", "**.map"],
+    "cartridge": [
+        "app_storefront_base",
+        "bm_app_storefront_base",
+        "modules"
+    ],
+    "code-version": "sfra"
+}

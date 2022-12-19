@@ -3,7 +3,7 @@
     "username": "",
     "password": "",
     "storefrontUsername": "storefront",
-    "storefrontPassword": "chl123",
+    "storefrontPassword": "chalhoub1234",
     "exclude": ["**/client/**", "node_modules", "**.map"],
     "cartridge": [
         "app_storefront_base",

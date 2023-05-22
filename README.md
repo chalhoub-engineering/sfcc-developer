@@ -17,7 +17,5 @@ The estimated time to accomplish every task sits between 10 and 15 hours, depend
     - secret key: 6LeaRxEjAAAAALLnmOwOO45nwp2CJ3YfIJGyH3CA
 - on the right side:
     - all these information should be managed somehow by the business
-
-### <em>Optional</em>:
 - you need to send these stored data asynchronously to a fake email
 - body of the email is at your discretion but should contains all these data: name, firstname, email, phone, message

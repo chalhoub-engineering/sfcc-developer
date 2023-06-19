@@ -2,7 +2,7 @@
 
 ## Implement a form
 
-Submit below requirements by creating a private GitHub repository and sharing it with @bilalchalhoub. Your submission should include a README.md to document your implementation.
+Submit below requirements by creating a private GitHub repository and sharing it with @bilalchalhoub, @faraharif and @daniel-rosiak. Your submission should include a README.md to document your implementation.
 
 The estimated time to accomplish every task sits between 10 and 15 hours, depending on your experience.
 

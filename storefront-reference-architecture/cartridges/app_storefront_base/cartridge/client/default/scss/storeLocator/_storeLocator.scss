@@ -1,0 +1,84 @@
+.store-locator-container {
+    .btn-storelocator-search {
+        background-color: $light-gray;
+        border-color: #{var(--skin-primary-color-1)};
+        border-radius: 0;
+        color: #{var(--skin-primary-color-1)};
+
+        &:hover {
+            background-color: #{var(--skin-primary-color-1)};
+            color: $light-gray;
+        }
+    }
+
+    .detect-location {
+        margin-bottom: 1em;
+    }
+
+    .store-name {
+        font-weight: 600;
+    }
+
+    .store-details {
+        display: block;
+        @include media-breakpoint-up(md) {
+            margin-left: 3.125em;
+        }
+    }
+
+    .striped {
+        // BS5 changed $table-accent-bg from rgba(black, .05) to transparent, so
+        // the alternating row shade disappeared. Pin the original faint grey.
+        > div:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 5%);
+        }
+    }
+
+    .search-form {
+        width: 100%;
+        margin-bottom: 4rem;
+
+        // Keep the ZIP field from sitting flush against the card top edge.
+        .card-body {
+            padding-top: 1.5rem;
+        }
+    }
+
+    .select-store {
+        margin-top: 1rem;
+    }
+
+    .form-check {
+        .store-details {
+            margin-left: 1.125em;
+        }
+
+        // These store-selection radios were native, unskinned radios under BS4.
+        // BS5 makes .form-check-input the drawn control, so the site-wide branded
+        // gray-gradient radio skin in _bootstrapOverrides.scss now paints them.
+        // Opt back out to BS5's clean default: an empty circle that fills with the
+        // primary color when checked.
+        .form-check-input[type="radio"] {
+            background-color: $white;
+            background-image: none;
+            border-color: $grey5;
+
+            &:checked {
+                background-color: #{var(--skin-primary-color-1)};
+                background-image: var(--bs-form-check-bg-image);
+                border-color: #{var(--skin-primary-color-1)};
+            }
+        }
+    }
+
+    .store-locator-no-results {
+        display: none;
+    }
+
+    .results {
+        @include media-breakpoint-up(md) {
+            overflow: hidden auto;
+            max-height: 21.875em;
+        }
+    }
+}

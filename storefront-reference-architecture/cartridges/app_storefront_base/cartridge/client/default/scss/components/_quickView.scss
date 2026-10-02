@@ -1,0 +1,158 @@
+@import "../utilities/swatch";
+@import "productCommon";
+
+.quick-view-dialog,
+.choose-bonus-product-dialog {
+    max-width: 56.25em;
+
+    .selectable-bonus-product-line-item {
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+    }
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    .beenSelected {
+        background-color: $grey2;
+    }
+
+    .modal-header {
+        background-color: $grey2;
+        border-bottom: 2px solid #ccc;
+        border-top-left-radius: 0.1875rem;
+        border-top-right-radius: 0.1875rem;
+
+        .full-pdp-link {
+            color: #{var(--skin-primary-color-1)};
+        }
+
+        .close {
+            font-size: 2rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    .modal-title {
+        font-size: 1em;
+    }
+
+    .product-name {
+        font-size: 1.875em;
+    }
+
+    .swatch-circle {
+        // $white will be replaced by color image background via Javascript
+        @include swatch(2.5em, $white);
+    }
+
+    a[disabled] .swatch-circle {
+        cursor: not-allowed;
+
+        &.color-value.selected::after {
+            background-color: $gray-700;
+        }
+    }
+
+    .availablity-container {
+        text-align: right;
+    }
+
+    .availablity-container,
+    .size-chart {
+        margin-top: 0.938em;
+    }
+
+    .modal-content {
+        border: 1px solid rgba(0, 0, 0, 20%);
+    }
+
+    .modal-body {
+        max-height: 28.125em; /* 450/16 */
+        overflow-y: auto;
+
+        // A variation change that momentarily shortens the body toggles this
+        // scroll container's scrollbar off and on during the AJAX swap. With a
+        // space-consuming scrollbar that toggle shifts the body's content width
+        // by the scrollbar width, which cascades into the col-6 image column
+        // and, through the square carousel box below, into a visible height
+        // jump. Reserve the gutter so the width stays fixed across the swap.
+        scrollbar-gutter: stable;
+    }
+
+    button.close {
+        font-size: 1.25em;
+    }
+
+    .modal-footer {
+        background-color: $white;
+        border: none;
+        border-bottom-right-radius: 0.1875rem;
+        border-bottom-left-radius: 0.1875rem;
+
+        .prices .price {
+            font-size: 1.6em;
+        }
+    }
+
+    .prices .sales {
+        font-size: 1.5rem;
+    }
+
+    .promotions {
+        text-align: left;
+        color: $red;
+    }
+
+    .bonus-summary {
+        @include media-breakpoint-down(md) {
+            font-size: 0.625em;
+        }
+
+        .bonus-product-name {
+            @include media-breakpoint-down(md) {
+                padding: 0;
+            }
+        }
+    }
+
+    .pre-cart-products {
+        margin-right: 0.125em;
+    }
+
+    .color-attribute {
+        border: none;
+        padding: 0;
+        background: none;
+    }
+
+    .non-input-label {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+}
+
+// A variation change rebuilds the carousel via createCarousel(), which empties
+// .carousel-inner, appends fresh bare .carousel-item children, then marks the
+// first active. A just-swapped <img> has no resolved height until it decodes, so
+// without a reserved box the carousel height snaps once the image loads. Give
+// .carousel-inner a square box (RefArch product images are 1:1) and size the
+// image to fill it so height is stable before decode; object-fit letterboxes a
+// non-square variant and overflow clips any overshoot.
+/* stylelint-disable-next-line selector-id-pattern */
+#quickViewModal .primary-images .carousel-inner {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+/* stylelint-disable-next-line selector-id-pattern */
+#quickViewModal .primary-images .carousel-item {
+    height: 100%;
+}
+
+/* stylelint-disable-next-line selector-id-pattern */
+#quickViewModal .primary-images .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

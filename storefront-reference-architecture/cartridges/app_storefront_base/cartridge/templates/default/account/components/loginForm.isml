@@ -1,0 +1,50 @@
+<form action="${pdict.actionUrl}" class="login" method="POST" name="login-form">
+    <div class="mb-3 required">
+        <label class="form-label" for="login-form-email">
+            ${Resource.msg('label.input.login.email', 'login', null)}
+        </label>
+        <input type="email" id="login-form-email" required aria-required="true" class="form-control required" aria-describedby="form-email-error" name="loginEmail" value="${pdict.userName}">
+        <div class="invalid-feedback" id="form-email-error"></div>
+    </div>
+
+    <div class="mb-3 required">
+        <label class="form-label" for="login-form-password">
+                ${Resource.msg('label.input.login.password', 'login', null)}
+        </label>
+        <input type="password" id="login-form-password" required aria-required="true" class="form-control required" aria-describedby="form-password-error" name="loginPassword">
+        <div class="invalid-feedback" id="form-password-error"></div>
+    </div>
+
+    <div class="clearfix">
+        <div class="mb-3 form-check float-start remember-me">
+            <input type="checkbox" class="form-check-input" id="rememberMe" name="loginRememberMe" value="true"
+                <isif condition="${pdict.rememberMe}">checked</isif>
+            >
+            <label class="form-check-label" for="rememberMe">
+                ${Resource.msg('label.checkbox.login.rememberme', 'login', null)}
+            </label>
+        </div>
+
+        <div class="float-end forgot-password text-end">
+            <a class="d-sm-none" href="${URLUtils.url('Account-PasswordReset')}" title="${Resource.msg('link.login.forgotpassword', 'login', null)}">
+                ${Resource.msg('link.login.forgotpassword', 'login', null)}
+            </a>
+
+            <a
+                id="password-reset"
+                class="hidden-xs-down"
+                title="${Resource.msg('link.login.forgotpassword', 'login', null)}"
+                data-bs-toggle="modal"
+                href="${URLUtils.url('Account-PasswordResetDialogForm')}"
+                data-bs-target="#requestPasswordResetModal">
+                ${Resource.msg('link.login.forgotpassword', 'login', null)}
+            </a>
+        </div>
+    </div>
+
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+
+    <div class="d-grid">
+        <button type="submit" class="btn btn-primary">${Resource.msg('button.text.loginform', 'login', null)}</button>
+    </div>
+</form>

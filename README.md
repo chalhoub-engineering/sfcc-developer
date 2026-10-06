@@ -93,5 +93,5 @@ Include one sku with a **3–5s delay or intermittent 500** so you can demonstra
 
 - You'll get a **fresh sandbox** with **only the SFRA storefront**.
 - **Estimated effort:** ~1 day (roughly 6–10 hours depending on experience).
-- **Submit** a **private GitHub repository shared with @faraharif**, containing your code, respective
+- **Submit** a **private GitHub repository shared with @faraharif**, @daniel-rosiak, containing your code, respective
   documentation, and a `README.md` to document your implementation and how to test it.

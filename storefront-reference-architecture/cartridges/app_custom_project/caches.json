@@ -1,0 +1,8 @@
+{
+    "caches": [
+        {
+            "id": "fulfillmentCache",
+            "expireAfterSeconds": 86400
+        }
+    ]
+}

@@ -296,6 +296,10 @@ function handleVariantResponse(response, $productContainer) {
 
     updateAvailability(response, $productContainer);
 
+    if (response.fullfillmentContent !== null) {
+        $productContainer.find('.fullfillment-content').empty().html(response.fullfillmentContent);
+    }
+
     if (isChoiceOfBonusProducts) {
         var $selectButton = $productContainer.find('.select-bonus-product');
         $selectButton.trigger('bonusproduct:updateSelectButton', {

@@ -1,6 +1,5 @@
 'use strict';
 
-// var CacheMgr = require('dw/system/CacheMgr');
 var ContentMgr = require('dw/content/ContentMgr');
 var Locale = require('dw/util/Locale');
 var fullfillmentServiceModel = require('*/cartridge/scripts/models/fullfillmentService');
@@ -22,10 +21,6 @@ function getQueryParameter(queryString, parameterKey) {
         );
     })[0] || null;
 }
-
-/* function getCacheKey(sku, country) {
-    return 'FULFILLMENT_' + country.toUpperCase() + '_' + sku;
-} */
 
 /**
  * Get fulfillment content based on selected product variant and country.
@@ -63,11 +58,6 @@ function getFulfillmentContent(queryString, localeId) {
 
     var countryCode = Locale.getLocale(localeId).country;
 
-    // var fulfillmentCache = CacheMgr.getCache('fulfillmentCache');
-    // var cacheKey = getCacheKey(colorVariantId, countryCode);
-    // var cachedTier = fulfillmentCache.get(cacheKey);
-
-    // if (!cachedTier) {
     var fullfillmentTier = fullfillmentServiceModel.callFullfillmentService({
         sku: colorVariantId,
         country: countryCode
@@ -78,9 +68,6 @@ function getFulfillmentContent(queryString, localeId) {
         !fullfillmentTier.object.tier) {
         return null;
     }
-    // var cachedTier = fullfillmentTier.object.tier;
-    // fulfillmentCache.put(cacheKey, cachedTier);
-    // }
 
     var contentAsset = ContentMgr.getContent(
         fullfillmentTier.object.tier
